@@ -43,9 +43,9 @@ public class Parser {
         Thread mainThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                parse();
-                buildRequests();
-                downloadImages();
+                if(isRunning) parse();
+                if(isRunning) buildRequests();
+                if(isRunning) downloadImages();
             }
         });
         Thread managerThread = new Thread(new Runnable() {
